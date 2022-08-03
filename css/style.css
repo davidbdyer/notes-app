@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+@import 'animations.css';
+
+:root {
+	--clr-bg: #ccd5ae;
+	--clr-note-bg: #fefae0;
+	--clr-note-accent: #faedcd;
+	--clr-control-bg: #506632;
+	--clr-font: white;
+}
+
+* {
+	box-sizing: border-box;
+	outline: none;
+}
+
+body {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding-top: 3rem;
+	background-color: var(--clr-bg);
+	font-family: 'Poppins', sans-serif;
+}
+
+.button-container {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+}
+
+.btn {
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 0.1875em;
+	background-color: var(--clr-control-bg);
+	color: var(--clr-font);
+	cursor: pointer;
+}
+
+.btn:active {
+	transform: scale(0.98);
+}
+
+.note {
+	width: 25rem;
+	height: 25rem;
+	margin: 1.875rem 1.25rem;
+	overflow-y: scroll;
+	background-color: var(--clr-note-accent);
+	box-shadow: 0 0 0.625rem 0.25rem rgba(0, 0, 0, 0.1);
+	animation: fade-in 1s forwards;
+}
+
+.note .tools {
+	position: sticky;
+	top: 0;
+	display: flex;
+	justify-content: flex-end;
+	padding: 0.5rem;
+	background-color: var(--clr-control-bg);
+}
+
+.note .tools button {
+	margin-left: 0.5rem;
+	border: none;
+	background-color: transparent;
+	color: var(--clr-font);
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.note textarea {
+	width: 100%;
+	height: calc(100% - 1.4rem * 2);
+	padding: 1.25rem;
+	border: none;
+	font-size: 1.2rem;
+	font-family: inherit;
+	resize: none;
+	background-color: var(--clr-note-bg);
+}
+
+.main {
+	padding: 1.25rem;
+}
+
+.hidden {
+	display: none;
+}
