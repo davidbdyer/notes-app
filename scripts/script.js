@@ -1,11 +1,14 @@
 const addBtn = document.getElementById('add');
 const deleteAllBtn = document.getElementById('delete-all');
+const deleteModalOpenBtn = document.getElementById('delete-modal-open-button');
+const deleteAllCancelBtn = document.getElementById('delete-all-cancel-btn');
+const deleteModal = document.getElementById('delete-modal');
 
 // Load notes from local storage
 const storedNotes = JSON.parse(localStorage.getItem('notes'));
 
 if (storedNotes) {
-	storedNotes.forEach((note) => addNewNote(note));
+	storedNotes.forEach(note => addNewNote(note));
 }
 
 function addNewNote(text = '') {
@@ -40,7 +43,7 @@ function addNewNote(text = '') {
 		textArea.classList.toggle('hidden');
 	});
 
-	textArea.addEventListener('input', (e) => {
+	textArea.addEventListener('input', e => {
 		const { value } = e.target;
 		main.innerHTML = marked(value);
 		updateLS();
@@ -54,15 +57,23 @@ function updateLS() {
 	const notesText = document.querySelectorAll('textarea');
 	const notes = [];
 
-	notesText.forEach((note) => notes.push(note.value));
+	notesText.forEach(note => notes.push(note.value));
 
 	localStorage.setItem('notes', JSON.stringify(notes));
 }
 
 addBtn.addEventListener('click', () => addNewNote());
 
+deleteModalOpenBtn.addEventListener('click', () => {
+	deleteModal.showModal();
+});
+
+deleteAllCancelBtn.addEventListener('click', () => {
+	deleteModal.close();
+});
+
 deleteAllBtn.addEventListener('click', () => {
 	localStorage.clear();
 	const notes = document.querySelectorAll('.note');
-	notes.forEach((note) => note.remove());
+	notes.forEach(note => note.remove());
 });
