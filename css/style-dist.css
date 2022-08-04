@@ -33,10 +33,11 @@
 }
 :root {
 	--clr-bg: #ccd5ae;
-	--clr-note-bg: #fefae0;
-	--clr-note-accent: #faedcd;
+	--clr-note-bg: #faedcd;
+	--clr-note-accent: #fefae0;
 	--clr-control-bg: #506632;
 	--clr-font: white;
+	--radius: 0.1875em;
 }
 * {
 	-webkit-box-sizing: border-box;
@@ -64,6 +65,7 @@ body {
 	padding: 0.5rem 1rem;
 	border: none;
 	border-radius: 0.1875em;
+	border-radius: var(--radius);
 	background-color: #506632;
 	background-color: var(--clr-control-bg);
 	color: white;
@@ -80,18 +82,18 @@ body {
 	margin: 1.875rem 1.25rem;
 	overflow-y: scroll;
 	background-color: #faedcd;
-	background-color: var(--clr-note-accent);
+	background-color: var(--clr-note-bg);
 	-webkit-box-shadow: 0 0 0.625rem 0.25rem rgba(0, 0, 0, 0.1);
 	        box-shadow: 0 0 0.625rem 0.25rem rgba(0, 0, 0, 0.1);
 	-webkit-animation: fade-in 1s forwards;
 	        animation: fade-in 1s forwards;
 }
 .note .tools {
-	position: sticky;
-	top: 0;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+	position: sticky;
+	top: 0;
 	-webkit-box-pack: end;
 	    -ms-flex-pack: end;
 	        justify-content: flex-end;
@@ -113,16 +115,35 @@ body {
 	height: calc(100% - 1.4rem * 2);
 	padding: 1.25rem;
 	border: none;
+	background-color: #fefae0;
+	background-color: var(--clr-note-accent);
 	font-size: 1.2rem;
 	font-family: inherit;
 	resize: none;
-	background-color: #fefae0;
-	background-color: var(--clr-note-bg);
 }
 .main {
 	padding: 1.25rem;
 }
 .hidden {
 	display: none;
+}
+.modal {
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+	border-width: 2px;
+	border-radius: 0.1875em;
+	border-radius: var(--radius);
+	border-color: #506632;
+	border-color: var(--clr-control-bg);
+	background-color: #faedcd;
+	background-color: var(--clr-note-bg);
+	color: #506632;
+	color: var(--clr-control-bg);
+	text-align: center
+}
+.modal p {
+	margin-top: 0;
 }
 /*# sourceMappingURL=style-dist.css.map */

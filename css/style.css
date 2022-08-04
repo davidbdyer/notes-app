@@ -3,10 +3,11 @@
 
 :root {
 	--clr-bg: #ccd5ae;
-	--clr-note-bg: #fefae0;
-	--clr-note-accent: #faedcd;
+	--clr-note-bg: #faedcd;
+	--clr-note-accent: #fefae0;
 	--clr-control-bg: #506632;
 	--clr-font: white;
+	--radius: 0.1875em;
 }
 
 * {
@@ -32,7 +33,7 @@ body {
 .btn {
 	padding: 0.5rem 1rem;
 	border: none;
-	border-radius: 0.1875em;
+	border-radius: var(--radius);
 	background-color: var(--clr-control-bg);
 	color: var(--clr-font);
 	cursor: pointer;
@@ -47,15 +48,15 @@ body {
 	height: 25rem;
 	margin: 1.875rem 1.25rem;
 	overflow-y: scroll;
-	background-color: var(--clr-note-accent);
+	background-color: var(--clr-note-bg);
 	box-shadow: 0 0 0.625rem 0.25rem rgba(0, 0, 0, 0.1);
 	animation: fade-in 1s forwards;
 }
 
 .note .tools {
+	display: flex;
 	position: sticky;
 	top: 0;
-	display: flex;
 	justify-content: flex-end;
 	padding: 0.5rem;
 	background-color: var(--clr-control-bg);
@@ -75,10 +76,10 @@ body {
 	height: calc(100% - 1.4rem * 2);
 	padding: 1.25rem;
 	border: none;
+	background-color: var(--clr-note-accent);
 	font-size: 1.2rem;
 	font-family: inherit;
 	resize: none;
-	background-color: var(--clr-note-bg);
 }
 
 .main {
@@ -87,4 +88,19 @@ body {
 
 .hidden {
 	display: none;
+}
+
+.modal {
+	padding-inline: 2rem;
+	padding-block: 2.5rem;
+	border-width: 2px;
+	border-radius: var(--radius);
+	border-color: var(--clr-control-bg);
+	background-color: var(--clr-note-bg);
+	color: var(--clr-control-bg);
+	text-align: center
+}
+
+.modal p {
+	margin-top: 0;
 }
